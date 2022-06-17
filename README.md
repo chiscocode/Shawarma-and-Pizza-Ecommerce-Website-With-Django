@@ -71,7 +71,7 @@ python manage.py runserver
 
 <br/>
 <div align="center">
-  Customer Home
+  Customer Home<br/>
  <img src="home.PNG" width="400px"</img> 
 
 </div>
