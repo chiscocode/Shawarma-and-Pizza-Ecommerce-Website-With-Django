@@ -64,21 +64,14 @@ python manage.py runserver
 
 <table width="100%"> 
 <tr>
-<td width="50%">      
-&nbsp; 
+<td width="100%">
 <br>
 <p align="center">
   Customer Home
 </p>
-
     <img src="home.PNG" width="400px"</img> 
-</td> 
-<td width="50%">
-<br>
-<p align="center">
-  Admin Home
-</p>
-    <img src="admin.PNG" width="400px"</img> 
+
+    
 </td>
 </table>
 
