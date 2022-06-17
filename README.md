@@ -1,7 +1,6 @@
-<div align="center">
 # Shawarma-and-pizza-Ecommerce-Website-With-Django
 The aim of this website is to enable customers order for thier favourite food online and get it delivered to them at their confort.
-</div>
+
 
 ### Cloning the repository
 
@@ -64,7 +63,7 @@ python manage.py runserver
 <p align="center">
   Customer Home
     <img src="home.PNG" width="400px"</img> 
-  
+
 </p>
 
     
