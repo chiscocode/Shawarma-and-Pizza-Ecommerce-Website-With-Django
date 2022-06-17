@@ -71,9 +71,7 @@ python manage.py runserver
   Customer Home
 </p>
 
-    <img src="homepage.PNG" width="400px"</img> 
-
-<img src="homepage.png">
+    <img src="home.PNG" width="400px"</img> 
 </td> 
 <td width="50%">
 <br>
