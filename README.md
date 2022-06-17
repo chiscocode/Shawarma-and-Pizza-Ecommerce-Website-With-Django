@@ -62,18 +62,14 @@ python manage.py runserver
 
 ### App Preview :
 
-<table width="100%"> 
-<tr>
-<td width="100%">
-<br>
+<br/>
 <p align="center">
   Customer Home
 </p>
     <img src="home.PNG" width="400px"</img> 
 
     
-</td>
-</table>
+
 
 ## License
 MIT License
