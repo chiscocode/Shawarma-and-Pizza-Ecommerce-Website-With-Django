@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5 mb-5 text-center">
+    <h1>making order: NGN {{cart.get_total_cost}}</h1>
+    
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <button class="btn btn-success" id="django-paystack-button" onclick="payWithPaystack()">Making Payment</button>
+
+</div>
+    
+{% endblock  %}
+
+{% block scripts %}
+
+<script>
+
+function payWithPaystack() {
+    let currency= "NGN";
+    let plan = "";
+    let ref = "{{form.ref}}";
+    let obj = {
+        key: "{{paystack_public_key}}",
+        email:"{{form.email}}",
+        amount:"{{cart.get_total_cost}}" * 100,
+        ref:ref,
+        callback: function(response){
+            window.location.href = "{% url 'verify-payment' form.ref %}";
+            
+        }
+    }
+    if (Boolean(currency)){
+        obj.currency = currency.toUpperCase()
+    }
+    if (Boolean(plan)){
+        obj.plan = plan
+    }
+    var handler = PaystackPop.setup(obj);
+    handler.openIframe();
+    
+}
+</script>
+
+
+{% endblock %}
+    

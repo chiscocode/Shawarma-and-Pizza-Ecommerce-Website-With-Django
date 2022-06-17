@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- -----------------------*******------------------------ -->
+<section class="abt">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="wrapper">
+                    <h2>Edit Staff Record</h2>
+                    <ol>
+                        <li>Home <i class="fa fa-arrow-right"></i></li>
+                        <li>Edit Staff Record</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- -----------------------*******------------------------ -->
+<section id="Edit Staff Record" class="bg-light mt-5 py-5 mb-5 pb-5">
+    <div class="container ">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card">
+            <div class="card-header bg-danger text-white">
+              <h4>
+                <i class="fas fa-user-plus"></i> Edit Staff Record</h4>
+            </div>
+            <div class="card-body">
+              <!-- Alerts -->
+              {% include 'includes/aleart.html' %}
+              <form action="" method="POST">
+                  {% csrf_token %}
+                <div class="form-group">
+                    <label>staff name</label>
+                  <input type="text" name="name" id="id_name" value="{{ staff.name }}" class="form-control" required>
+                  <small class="text-warning">This is not the same as the username!</small>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" name="email" id="id_email" value="{{ staff.created_by.email }}" class="form-control" required>
+                </div>
+                <input type="submit" value="Save changes" class="btn btn-danger btn-block">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+{% endblock %}

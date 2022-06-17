@@ -1,0 +1,16 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 24/10/2020 09:16
+  	*/
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}
+
+.flaticon-facebook:before { content: "\f100"; }
+.flaticon-instagram:before { content: "\f101"; }
+.flaticon-twitter:before { content: "\f102"; }

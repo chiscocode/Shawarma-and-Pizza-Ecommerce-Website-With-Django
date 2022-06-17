@@ -1,0 +1,98 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Sharwama Republic</title>
+        <meta name="description"
+		content="MerivaSpot Resturant Services, The best Resturant services in asaba. Website build by patoski.">
+	<meta name="keywords" content="Patrick Chukwudifu,Meriva, MerivaSpot,merivaspotResturant Patoski Chimezie, Coder, Programer,Best Web Developer In Nigeria, Django,Django Developer,Full Stack, SEO, Marketing, Python, React,Best Web Developer In Onitsha">
+    <meta name="author" content="Patrick Chukwudifu">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-47692315-56"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-47692315-56');
+	</script>
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/logo/logo.png' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/font/flaticon.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/plugins/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+        <script src="{% static 'assets/js/all.js' %}"></script>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <!-- Smartsupp Live Chat script -->
+    <script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = '089b1bc681d4b7074078ca6480715fb0367e01c6';
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+    </script>
+    </head>
+    <!-- =================Body Started==================== -->
+    <body>
+
+
+            {% include 'navbar.html' %}
+            <main>
+            {% block content %}
+                
+            {% endblock content %}
+            </main>
+            {% include 'footer.html' %}
+            
+                
+            {% block scripts %}
+            {% endblock %}
+
+
+
+
+          
+          <!-- =================Body End==================== -->
+      
+          <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+          <script src="{% static 'assets/js/popper.min.js' %}"></script>
+          <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+          <script src="{% static 'assets/js/plugins/owl.carousel.min.js' %}"></script>
+          <script src="{% static 'assets/js/script.js' %}"></script>
+          <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+          <script>
+            setTimeout(function() {
+            $('#message').fadeOut('slow');
+            }, 5000);
+        </script>
+        <script>
+        AOS.init();
+        </script>
+
+        <style>
+            /* notification toast */
+@keyframes show-toast {
+    0% {bottom: -100%; }
+    20% {bottom: 50px; }
+    800% {bottom: 50px; }
+    100% {bottom: -100%; }
+
+}
+
+.notification.is-toast{
+    position: fixed;
+    bottom: 100%;
+    right: 20px;
+    animation-name: show-toast;
+    animation-duration: 7s;
+}
+        </style>
+
+    </body>
+</html>

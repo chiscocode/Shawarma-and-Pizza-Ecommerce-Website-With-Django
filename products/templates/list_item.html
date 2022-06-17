@@ -1,0 +1,12 @@
+<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" >
+    <figure >
+        <div class="images">
+            <img src="{{product.image.url}}" style="height: 200px; width: 400px;">
+        </div>
+        <div class="content">
+            <h4 class="text-uppercase">{{product.title}}</h4><br>
+            <h4>&#8358;{{product.price}}</h4><br>
+            <a href="{% url 'product' product.category.slug product.slug %}" role="button" class="btn btn-danger">View Details</a>
+        </div>
+    </figure>
+</div>

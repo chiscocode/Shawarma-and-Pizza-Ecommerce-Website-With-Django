@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!-- -----------------------*******------------------------ -->
+<section class="abt">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="wrapper">
+                    <h2>Edit Product</h2>
+                    <ol>
+                        <li>Home <i class="fa fa-arrow-right"></i></li>
+                        <li>Edit Product</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- -----------------------*******------------------------ -->
+<div class="container col-md-12 text-dark">
+    <h3 class="text-center">Edit Product</h3>
+    <div class="container ">
+        <section id="register" class=" py-2">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class=" justify-content-center align-items-center">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{form|crispy}}
+                            <input type="submit" class="btn btn-primary" value="Submit Post">
+                        </form>
+                    </div>
+                </div>
+            </div>
+      </div>
+  </section>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Staffs | {% endblock %}
+
+{% block content %}
+
+    <div class="container">
+    <h1 class="text-center">Number of Staffs</h1>
+
+        {% for staff in staffs %}
+            <div class="">
+                <div class="">
+                    <h3>{{ staff.name }}</h3>
+                    <a href="{% url 'staff' staff.id %}" class="btn btn-primary" type="submit">View Details</a>
+                    <hr>
+
+                </div>
+            </div>
+        {% endfor %}
+        <div class="row mb-5">
+            <div class="col-md-12">
+                {% if staffs.has_other_pages %}
+                <ul class="pagination">
+                    {% if staffs.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{staffs.previous_page_number}}">Previous</a></li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link">Previous</a>
+                      </li>
+                    {% endif %}
+                    {% for i in staffs.paginator.page_range %}
+                      {% if staffs.number == i %}
+                        <li class="page-item active">
+                          <a class="page-link">{{i}}</a>
+                        </li>
+                      {% else %}
+                        <li class="page-item">
+                          <a href="?page={{i}}" class="page-link">{{i}}</a>
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                    {% if staffs.has_next %}
+                      <li class="page-item">
+                        <a href="?page={{staffs.next_page_number}}" class="page-link">Next</a>
+                      </li>
+                    {% else %}
+                      <li class="page-item disabled">
+                        <a class="page-link">Next</a>
+                      </li>
+                    {% endif %}
+                  </ul>
+                {% endif %}
+            </div>
+          </div>
+    </div>
+{% endblock %}

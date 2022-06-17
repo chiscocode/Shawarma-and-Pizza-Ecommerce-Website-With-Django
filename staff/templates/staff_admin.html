@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- -----------------------*******------------------------ -->
+<section class="abt">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="wrapper">
+                    <h2>Staff Dashboard</h2>
+                    <ol>
+                        <li>Home <i class="fa fa-arrow-right"></i></li>
+                        <li>Staff Dashboard</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- -----------------------*******------------------------ -->
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center text-dark">
+        <div class="col-md-12">
+          <h1 class="display-4 ">Staff Dashboard</h1>
+          <p class="lead">Manage your account</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'home' %}">
+              <i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="breadcrumb-item active"> Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Alerts -->
+  {% include 'includes/aleart.html' %}
+
+  <section id="dashboard" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+            <h4 class="font-weight-bold">My Balance:</h4><span class="font-weight-bold"> &#8358;{{ staff.get_balance }}</span>
+            <!-- <h4 class="font-weight-bold">My Paid Amount:</h4><span class="font-weight-bold"> &#8358;{{ staff.get_paid_amount }}</span> -->
+          <h2>Welcome {{ staff.name }}</h2> <a href="{% url 'logout' %}" class="btn btn-danger btn-lg mr-3" type="button">LOGOUT</a><a href="{% url 'edit_staff' %}" class="btn btn-warning btn-lg" type="button">EDIT STAFF</a>
+          <a href="/staff/" class="btn btn-success btn-lg" type="button">VIEW TOTAL STAFF</a>
+        <h4 class="mt-4 mb-3 font-weight-bold">My Accounts</h4>
+                    <hr>
+                    <div class="card card-body">
+                        <a class="btn btn-primary  btn-sm btn-block" href="{% url 'add_product' %}">ADD PRODUCT</a>
+                        <div class="table-responsive">
+                        <table class="table table-sm  table-hover">
+                            <tr>
+                                <th>Title</th>
+                                <th>Price</th>
+                                
+                            </tr>
+            
+                            {% for product in products %}
+                                <tr>
+                                    <td>{{product.title}}</td>
+                                    <td>&#8358;{{product.price}}</td>
+                                    <td><a href="{% url 'delete_product' product.id %}" class="btn btn-sm btn-primary">Delete</a></td>
+                                    <td><a href="{% url 'edit_product' product.id %}" class="btn btn-sm btn-primary">Update</a></td>
+                                    <td><a href="{% url 'product' product.category.slug product.slug %}"class="btn btn-sm btn-success">View Products</a></td>
+                                </tr>
+                            {% endfor %}
+            
+                        </table>
+                    </div>
+                    <div class="container">
+                    <div class="row mb-3">
+                      <div class="col-md-12">
+                          {% if products.has_other_pages %}
+                          <ul class="pagination">
+                              {% if products.has_previous %}
+                              <li class="page-item"><a class="page-link" href="?page={{products.previous_page_number}}">Previous</a></li>
+                              {% else %}
+                              <li class="page-item disabled">
+                                  <a class="page-link">Previous</a>
+                                </li>
+                              {% endif %}
+                              {% for i in products.paginator.page_range %}
+                                {% if products.number == i %}
+                                  <li class="page-item active">
+                                    <a class="page-link">{{i}}</a>
+                                  </li>
+                                {% else %}
+                                  <li class="page-item">
+                                    <a href="?page={{i}}" class="page-link">{{i}}</a>
+                                  </li>
+                                {% endif %}
+                              {% endfor %}
+                              {% if products.has_next %}
+                                <li class="page-item">
+                                  <a href="?page={{products.next_page_number}}" class="page-link">Next</a>
+                                </li>
+                              {% else %}
+                                <li class="page-item disabled">
+                                  <a class="page-link">Next</a>
+                                </li>
+                              {% endif %}
+                            </ul>
+                          {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  </section>
+
+<!------------------***********-------->
+<div class="container">
+  <h2 class=" mb-4">My orders</h2>
+
+  {% if orders %}
+      {% for order in orders %}
+          <div class="{% if order.fully_paid %}bg-success{% else %}bg-info{% endif %} mt-3 mb-2">
+              <div class="">
+                  
+                      <h3 class="font-weight-bold">#{{ order.id }} - {{ order.first_name }} {{ order.last_name }}</h3>
+                  
+
+                  
+                      <h5>Name:</h5> {{ order.first_name }} {{ order.last_name }}<br>
+                      <h5>Address:</h5> {{ order.address }}<br>
+                      <h5>Zip and state:</h5> {{ order.zipcode }} {{ order.state }}<br>
+                      <h5>E-mail:</h5> {{ order.email }}<br>
+                      <h5>Phone:</h5> {{ order.phone }}
+                      <div class="card card-body">
+                        
+                        <div class="table-responsive">
+                        <table class="table table-sm  table-hover">
+                            <tr>
+                              <th>Title</th>
+                              <th>Price</th>
+                              <th>Quantity</th>
+                              <!-- <th>Paid</th> -->
+                              <th>Total</th>
+                                
+                            </tr>
+            
+                            
+                            {% for item in order.items.all %}
+                            {% if item.staff == request.user.staff %}
+                                <tr>
+                                    <td>{{ item.product.title }}</td>
+                                    <td>&#8358;{{ item.product.price }}</td>
+                                    <td>{{ item.quantity }}</td>
+                                    <!-- <td>{{ item.staff_paid|yesno:"Yes,No" }}</td> -->
+                                    <td>&#8358;{{ item.get_total_price }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                            
+            
+                        </table>
+                    </div>
+                </div>
+                  
+              </div>
+          </div>
+      {% endfor %}
+  {% endif %}
+</div>
+<div class="container">
+  <div class="row mb-5">
+    <div class="col-md-12">
+        {% if orders.has_other_pages %}
+        <ul class="pagination">
+            {% if orders.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{orders.previous_page_number}}">Previous</a></li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+              </li>
+            {% endif %}
+            {% for i in orders.paginator.page_range %}
+              {% if orders.number == i %}
+                <li class="page-item active">
+                  <a class="page-link">{{i}}</a>
+                </li>
+              {% else %}
+                <li class="page-item">
+                  <a href="?page={{i}}" class="page-link">{{i}}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+            {% if orders.has_next %}
+              <li class="page-item">
+                <a href="?page={{orders.next_page_number}}" class="page-link">Next</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled">
+                <a class="page-link">Next</a>
+              </li>
+            {% endif %}
+          </ul>
+        {% endif %}
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+    
+{% endblock %}
+    

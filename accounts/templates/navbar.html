@@ -1,0 +1,52 @@
+{% load static %}
+<!-- ============================********======================== -->
+
+<header>
+  <div class="top-nav">
+      <div class="container">
+          <div class="row">
+              <div class="col-6 col-xs-12">
+                  <div class="top-social-media">
+                      <ol>
+                        <li><form action="{% url 'search' %}" method="GET" class="form-inline">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search for Food" name="query"aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                          </form></li>
+                          <li><a><i class="fab fa-facebook-f text-light"></i></a></li>
+                          <li><a><i class="fab fa-twitter text-light"></i></a></li>
+                      </ol>
+                  </div>
+              </div>
+              <div class="col-6 col-xs-12">
+                  <div class="top-right">
+                      <ol>
+                          <li><a href="{% url 'cart' %}">Cart{% if cart %} ({{ cart|length }}){% endif %}<i class="fa fa-cart-plus"></i></a></li>
+                      </ol>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="main-nav">
+      <div class="container">
+          <div class="row my-main-nav">
+              <div class="menu-toggle"><i class="fa fa-bars fa-2x"></i></div>
+              <div class="logo">
+                <a href="{% url 'home' %}" class="text-dark text-uppercase font-weight-bold" style="text-decoration: none;">Sharwama Republic</a>
+              </div>
+              <div class="menu">
+                  <ul>
+                      <li><a href="{% url 'home' %}">Home</a></li>
+                      <li><a href="{% url 'menu' %}">Menu</a></li>
+                      <li><a href="{% url 'about' %}">About Us</a></li>
+                      <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                      <li><a href="{% url 'cart' %}">Cart<i class="fa fa-cart-plus"></i>{% if cart %} ({{ cart|length }}){% endif %}</a></li>
+                  </ul>
+              </div>
+              
+          </div>
+      </div>
+  </div>
+</header>
+<!-- ============================********======================== -->

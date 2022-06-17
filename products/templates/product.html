@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- -----------------------*******------------------------ -->
+<section class="abt">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="wrapper">
+                    <h2>Product Details</h2>
+                    <ol>
+                        <li>Home <i class="fa fa-arrow-right"></i></li>
+                        <li>Product Details</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    {% include 'includes/aleart.html' %}
+    
+    <div class="mt-5">
+        <img src="{{product.image.url}}" alt="" srcset="" style="width: 700px; height: 400px; ">
+    </div>
+    <h1 class="">{{product.title}}</h1>
+    <h3 class=""> &#8358; {{product.price}}</h3>
+    <p class="text-dark mt-2">{{product.description |safe}}</p>
+
+    <hr>
+    {% if product.stock <= 0 %}
+    <h4 class="text-danger">Out of Stock</h4>
+    {% else %}
+    <form action="" method="POST" class="mb-5">
+        {% csrf_token %} 
+        <input type="number" name="quantity" value="1" class=" input" min="1">
+        <input type="submit" value="Add To Cart" class="btn btn-warning btn-md">
+    </form>
+    {% endif %}
+</div>
+
+{% if similar_products %}
+        <hr>
+
+        <div class="columns is-multiline">
+            <div class="comlumn is-12">
+                <h2 class="subtitle">Similar Products</h2>
+            </div>
+            {% for product in similar_products %}
+                {% include 'list_item.html' %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+
+
+
+    
+{% endblock %}
+    
