@@ -70,7 +70,7 @@ python manage.py runserver
 <p align="center">
   Customer Home
 </p>
-![](static/homepage.PNG)
+![](./static/homepage.PNG)
 
 <img src="homepage.png">
 </td> 
@@ -79,7 +79,7 @@ python manage.py runserver
 <p align="center">
   Admin Home
 </p>
-![](static/admin.PNG)
+![](./static/admin.PNG)
 
 </td>
 </table>
