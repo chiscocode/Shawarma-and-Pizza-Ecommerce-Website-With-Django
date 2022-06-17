@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 <div align="center">
 # Shawarma-and-pizza-Ecommerce-Website-With-Django
 The aim of this website is to enable customers order for thier favourite food online and get it delivered to them at their confort.
@@ -65,8 +63,9 @@ python manage.py runserver
 <br/>
 <p align="center">
   Customer Home
-</p>
     <img src="home.PNG" width="400px"</img> 
+  
+</p>
 
     
 
@@ -94,5 +93,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE
 
-
->>>>>>> 37d1a82 (modified)
