@@ -32,7 +32,10 @@ envname\scripts\activate
 
 ```
 or 
-```source env/bin/activate``` on Mac and Linux.
+```
+source env/bin/activate
+```
+ on Mac and Linux.
 
 
 --> Install the requirements :
@@ -41,7 +44,14 @@ pip install -r requirements.txt
 
 ```
 
-Make migrations with: ```python manage.py makemigrations``` and then ```python manage.py migrate```.
+Make migrations with: 
+```
+python manage.py makemigrations
+``` 
+and then
+ ```
+python manage.py migrate
+```.
 
 #
 
@@ -60,11 +70,11 @@ python manage.py runserver
 ### App Preview :
 
 <br/>
-<p align="center">
+<div align="center">
   Customer Home
-    <img src="home.PNG" width="400px"</img> 
+ <img src="home.PNG" width="400px"</img> 
 
-</p>
+</div>
 
     
 
